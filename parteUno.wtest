@@ -1,4 +1,4 @@
-import example.*
+import elementos.*
 
 describe "group of tests for villa" {
 
