@@ -7,6 +7,9 @@ class Plagas {
     method nivelDeDaño() {
         // Lógica para calcular el nivel de daño
     }
+    method sobreLaPlaga(plaga) {
+        poblacion = poblacion + plaga.poblacion() * 0.01
+    }
 }
 class Mosquito inherits Plagas {
     override method nivelDeDaño() {
