@@ -54,9 +54,9 @@ class Huerta inherits Elemento {
  } 
  override method efectoDeLaPlaga(plaga){
     if (plaga.transmiteEnfermedades()) {
-      nivelDeProduccion -= plaga.nivelDeDaño()*0.01 + 10
-    }else {
-      nivelDeProduccion -= plaga.nivelDeDaño()*0.01
+      nivelDeProduccion -= (plaga.nivelDeDaño() * 0.1)  + 10
+    } else {
+      nivelDeProduccion -= plaga.nivelDeDaño() * 0.1
     }
   }
 }

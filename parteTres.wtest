@@ -12,7 +12,7 @@ describe "test de los efectos de una plaga sobre un elemento" {
     casa.efectoDeLaPlaga(plaga)
     assert.that(casa.nivelDeMugre() == 15)
   }
-}
+
 
 test "mascota es atacada por una plaga que transmite enfermedades" {
     const felix = new Mascota()
@@ -41,7 +41,7 @@ test "mascota es atacada por una plaga que transmite enfermedades" {
     plaga.poblacion(40)
     plaga.pesoPromedio(12)
     cultivo.efectoDeLaPlaga(plaga)
-    assert.that(cultivo.nivelDeProduccion() == 4)
+    assert.that(cultivo.nivelDeProduccion() == 8)
   }
   test "Huerta es atacada por una plaga que no transmite enfermedades" {
     const cultivo = new Huerta()
@@ -50,6 +50,7 @@ test "mascota es atacada por una plaga que transmite enfermedades" {
     const plaga = new Cucaracha()
     plaga.poblacion(40)
     plaga.pesoPromedio(7)
-    cultivo.efectoPorPlaga(plaga)
-    assert.that(cultivo.nivelDeProduccion() == 16)
+    cultivo.efectoDeLaPlaga(plaga)
+    assert.equals(cultivo.nivelDeProduccion() , 18)
+  }
   }
