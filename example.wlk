@@ -1,7 +1,22 @@
 
 class Elemento {
+  const property pueblo = []
   method esBueno(){
     return true
+  }
+  method agregarElemento(elemento){
+    pueblo.add(elemento)
+  }
+  method esCopado(){
+    return self.elementosBuenos() > self.elementosMalos()
+  }
+
+  method elementosBuenos(){
+    return pueblo.count({ elem => elem.esBueno() })
+  }
+
+  method elementosMalos(){
+    return pueblo.count({ elem => !elem.esBueno() })
   }
 }
 class Mascota inherits Elemento {
