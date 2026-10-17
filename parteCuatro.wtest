@@ -11,8 +11,8 @@ describe "test de los efectos de una plaga despues de atacar un elemento" {
     felix.efectoDeLaPlaga(plaga)
     plaga.efectoParaLaPlaga()
     assert.that(felix.nivelDeSalud() == 290)
-    assert.that(plaga.pesoPromedio() == 12)
     assert.that(plaga.poblacion() ==  22)
+    assert.that(plaga.pesoPromedio() == 12)
   }
 
   test "Mascota es atacada por una pulga" {

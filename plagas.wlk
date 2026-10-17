@@ -9,7 +9,7 @@ class Plagas {
         // Lógica para calcular el nivel de daño
     }
     method efectoParaLaPlaga() {
-        poblacion += poblacion * 0.01
+        poblacion += poblacion * 0.1
     }
 }
 class Mosquito inherits Plagas {
@@ -28,8 +28,8 @@ class Cucaracha inherits Plagas {
         return poblacion >= 10 && pesoPromedio >= 10
     }
     override method efectoParaLaPlaga() {
-        poblacion += poblacion * 0.01
-        pesoPromedio += pesoPromedio + 2
+        poblacion += poblacion * 0.1
+        pesoPromedio +=  2
     }
 }
 class Pulga inherits Plagas {
@@ -48,6 +48,6 @@ class Garrapata inherits Plagas {
         return poblacion >= 10
     }
     override method efectoParaLaPlaga() {
-        poblacion += poblacion * 0.02
+        poblacion += poblacion * 0.2
     }
 }
