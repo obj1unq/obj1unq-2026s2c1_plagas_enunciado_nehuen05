@@ -2,7 +2,7 @@
 class Elemento {
   const property pueblo = []
   method esBueno(){
-    return true
+    // Lógica para determinar si el elemento es bueno
   }
   method agregarElemento(elemento){
     pueblo.add(elemento)
