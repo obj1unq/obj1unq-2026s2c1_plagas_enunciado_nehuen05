@@ -1,0 +1,55 @@
+import plagas.*
+import elementos.*
+
+describe "test de los efectos de una plaga sobre un elemento" {
+  test "hogar es atacado por una plaga" {
+    const casa = new Hogar()
+    casa.nivelDeMugre(10)
+    casa.nivelDeConfort(20)
+    const plaga = new Cucaracha()
+    plaga.poblacion (10)
+    plaga.pesoPromedio(12)
+    casa.efectoPorPlaga(plaga)
+    assert.that(casa.nivelDeMugre() == 15)
+  }
+}
+
+test "mascota es atacada por una plaga que transmite enfermedades" {
+    const felix = new Mascota()
+    felix.nivelDeSalud (300)
+    const plaga = new Cucaracha()
+    plaga.poblacion ( 40)
+    plaga.pesoPromedio(12)
+    felix.efectoPorPlaga(plaga)
+    assert.that(felix.nivelDeSalud() == 280)
+  }
+  test "mascota es atacada por una plaga que no transmite enfermedades" {
+    const felix = new Mascota()
+    felix.nivelDeSalud (300)
+    const plaga = new Cucaracha()
+    plaga.poblacion ( 40)
+    plaga.pesoPromedio(7)
+    felix.efectoPorPlaga(plaga)
+    assert.that(felix.nivelDeSalud() == 300)
+  }
+
+  test "Huerta es atacada por una plaga que transmite enfermedades" {
+    const cultivo = new Huerta()
+    cultivo.nivelDeProduccion(20)
+    cultivo.produccionEsperada(15)
+    const plaga = new Cucaracha()
+    plaga.poblacion(40)
+    plaga.pesoPromedio(12)
+    cultivo.efectoPorPlaga(plaga)
+    assert.that(cultivo.nivelDeProduccion() == 4)
+  }
+  test "Huerta es atacada por una plaga que no transmite enfermedades" {
+    const cultivo = new Huerta()
+    cultivo.nivelDeProduccion(20)
+    cultivo.produccionEsperada(15)
+    const plaga = new Cucaracha()
+    plaga.poblacion(40)
+    plaga.pesoPromedio(7)
+    cultivo.efectoPorPlaga(plaga)
+    assert.that(cultivo.nivelDeProduccion() == 16)
+  }

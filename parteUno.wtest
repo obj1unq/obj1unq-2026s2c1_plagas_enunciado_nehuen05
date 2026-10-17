@@ -24,12 +24,12 @@ describe "group of tests for villa" {
   }
 
   test "Huerta es buena" {
-    const cultivo = new Huerta(capacidadDeProduccion= 20)
+    const cultivo = new Huerta(nivelDeProduccion= 20)
     assert.that( cultivo.esBueno() )
   }
 
   test "Huerta es mala" {
-    const cultivo = new Huerta(capacidadDeProduccion = 10)
+    const cultivo = new Huerta(nivelDeProduccion = 10)
     assert.notThat( cultivo.esBueno() )
   }
 
@@ -37,7 +37,7 @@ describe "group of tests for villa" {
     const villa = new Elemento()
     const mascota = new Mascota(nivelDeSalud= 300)
     const hogar = new Hogar(nivelDeMugre= 10, nivelDeConfort=20 )
-    const huerta = new Huerta(capacidadDeProduccion= 10)
+    const huerta = new Huerta(nivelDeProduccion= 10)
 
     villa.agregarElemento(mascota)
     villa.agregarElemento(hogar)
@@ -50,7 +50,7 @@ describe "group of tests for villa" {
     const villa = new Elemento()
     const mascota = new Mascota(nivelDeSalud= 200)
     const hogar = new Hogar(nivelDeMugre= 15, nivelDeConfort=20 )
-    const huerta = new Huerta(capacidadDeProduccion= 20)
+    const huerta = new Huerta(nivelDeProduccion= 10)
 
     villa.agregarElemento(mascota)
     villa.agregarElemento(hogar)

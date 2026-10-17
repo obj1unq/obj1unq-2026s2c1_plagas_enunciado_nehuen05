@@ -5,7 +5,7 @@ class Plagas {
         // Lógica para transmitir enfermedades
     }
     method nivelDeDaño() {
-        return poblacion >= 10
+        // Lógica para calcular el nivel de daño
     }
 }
 class Mosquito inherits Plagas {

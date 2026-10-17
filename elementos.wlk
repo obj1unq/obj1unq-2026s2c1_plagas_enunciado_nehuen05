@@ -1,3 +1,4 @@
+import plagas.*
 
 class Elemento {
   const property pueblo = []
@@ -18,11 +19,19 @@ class Elemento {
   method elementosMalos(){
     return pueblo.count({ elem => !elem.esBueno() })
   }
+  method efectoPorPlaga(plaga){
+    // Lógica para aplicar el efecto de una plaga sobre el elemento
+  }
 }
 class Mascota inherits Elemento {
   var property nivelDeSalud = 0
   override method esBueno(){
     return  nivelDeSalud >= 250
+  }
+  override method efectoPorPlaga(plaga){
+    if (plaga.transmiteEnfermedades()) {
+      nivelDeSalud -= plaga.nivelDeDaño()
+    }
   }
 }
 
@@ -32,12 +41,22 @@ class Hogar inherits Elemento {
   override method esBueno(){
     return  nivelDeMugre <= (nivelDeConfort/2)
   }
+  override method efectoPorPlaga(plaga){
+    nivelDeMugre += plaga.nivelDeDaño()
+  }
 }
 
 class Huerta inherits Elemento {
-  var property capacidadDeProduccion = 0
+  var property nivelDeProduccion = 0
   var property produccionEsperada = 15
   override method esBueno() {
-    return capacidadDeProduccion > produccionEsperada
+    return nivelDeProduccion > produccionEsperada
  } 
+ override method efectoPorPlaga(plaga){
+    if (plaga.transmiteEnfermedades()) {
+      nivelDeProduccion -= plaga.nivelDeDaño()*0.01 + 10
+    }else {
+      nivelDeProduccion -= plaga.nivelDeDaño()*0.01
+    }
+  }
 }
