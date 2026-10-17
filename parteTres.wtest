@@ -9,7 +9,7 @@ describe "test de los efectos de una plaga sobre un elemento" {
     const plaga = new Cucaracha()
     plaga.poblacion (10)
     plaga.pesoPromedio(12)
-    casa.efectoPorPlaga(plaga)
+    casa.efectoDeLaPlaga(plaga)
     assert.that(casa.nivelDeMugre() == 15)
   }
 }
@@ -20,7 +20,7 @@ test "mascota es atacada por una plaga que transmite enfermedades" {
     const plaga = new Cucaracha()
     plaga.poblacion ( 40)
     plaga.pesoPromedio(12)
-    felix.efectoPorPlaga(plaga)
+    felix.efectoDeLaPlaga(plaga)
     assert.that(felix.nivelDeSalud() == 280)
   }
   test "mascota es atacada por una plaga que no transmite enfermedades" {
@@ -29,7 +29,7 @@ test "mascota es atacada por una plaga que transmite enfermedades" {
     const plaga = new Cucaracha()
     plaga.poblacion ( 40)
     plaga.pesoPromedio(7)
-    felix.efectoPorPlaga(plaga)
+    felix.efectoDeLaPlaga(plaga)
     assert.that(felix.nivelDeSalud() == 300)
   }
 
@@ -40,7 +40,7 @@ test "mascota es atacada por una plaga que transmite enfermedades" {
     const plaga = new Cucaracha()
     plaga.poblacion(40)
     plaga.pesoPromedio(12)
-    cultivo.efectoPorPlaga(plaga)
+    cultivo.efectoDeLaPlaga(plaga)
     assert.that(cultivo.nivelDeProduccion() == 4)
   }
   test "Huerta es atacada por una plaga que no transmite enfermedades" {

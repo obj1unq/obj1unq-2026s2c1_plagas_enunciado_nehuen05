@@ -1,2 +1,51 @@
 import plagas.*
 import elementos.*
+
+describe "test de los efectos de una plaga despues de atacar un elemento" {
+  test "Mascota es atacada por una cucaracha" {
+    const felix = new Mascota()
+    felix.nivelDeSalud(300)
+    const plaga = new Cucaracha()
+    plaga.poblacion ( 20)
+    plaga.pesoPromedio(10)
+    felix.efectoDeLaPlaga(plaga)
+    plaga.efectoParaLaPlaga()
+    assert.that(felix.nivelDeSalud() == 290)
+    assert.that(plaga.pesoPromedio() == 12)
+    assert.that(plaga.poblacion() ==  22)
+  }
+
+  test "Mascota es atacada por una pulga" {
+    const felix = new Mascota()
+    felix.nivelDeSalud (300)
+    const plaga = new Pulga()
+    plaga.poblacion ( 20)
+    felix.efectoDeLaPlaga(plaga)
+    plaga.efectoParaLaPlaga()
+    assert.that(felix.nivelDeSalud() == 260)
+    assert.that(plaga.poblacion() ==  22)
+  }
+
+  test "Mascota es atacada por una garrapata" {
+    const felix = new Mascota()
+    felix.nivelDeSalud(300)
+    const plaga = new Garrapata()
+    plaga.poblacion(20)
+    felix.efectoDeLaPlaga(plaga)
+    plaga.efectoParaLaPlaga()
+    assert.that(felix.nivelDeSalud() == 260)
+    assert.that(plaga.poblacion() ==  24)
+  }
+
+  test "Mascota es atacada por un mosquito" {
+    const felix = new Mascota()
+    felix.nivelDeSalud(300)
+    const plaga = new Mosquito()
+    plaga.poblacion( 30)
+    felix.efectoDeLaPlaga(plaga)
+    plaga.efectoParaLaPlaga()
+    assert.that(felix.nivelDeSalud() == 270)
+    assert.that(plaga.poblacion() ==  33)
+  }
+
+}

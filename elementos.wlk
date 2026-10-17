@@ -19,7 +19,7 @@ class Elemento {
   method elementosMalos(){
     return pueblo.count({ elem => !elem.esBueno() })
   }
-  method efectoPorPlaga(plaga){
+  method efectoDeLaPlaga(plaga){
     // Lógica para aplicar el efecto de una plaga sobre el elemento
   }
 }
@@ -28,7 +28,7 @@ class Mascota inherits Elemento {
   override method esBueno(){
     return  nivelDeSalud >= 250
   }
-  override method efectoPorPlaga(plaga){
+  override method efectoDeLaPlaga(plaga){
     if (plaga.transmiteEnfermedades()) {
       nivelDeSalud -= plaga.nivelDeDaño()
     }
@@ -41,7 +41,7 @@ class Hogar inherits Elemento {
   override method esBueno(){
     return  nivelDeMugre <= (nivelDeConfort/2)
   }
-  override method efectoPorPlaga(plaga){
+  override method efectoDeLaPlaga(plaga){
     nivelDeMugre += plaga.nivelDeDaño()
   }
 }
@@ -52,7 +52,7 @@ class Huerta inherits Elemento {
   override method esBueno() {
     return nivelDeProduccion > produccionEsperada
  } 
- override method efectoPorPlaga(plaga){
+ override method efectoDeLaPlaga(plaga){
     if (plaga.transmiteEnfermedades()) {
       nivelDeProduccion -= plaga.nivelDeDaño()*0.01 + 10
     }else {

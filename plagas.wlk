@@ -1,3 +1,4 @@
+import elementos.*
 class Plagas {
     var property plagas = []
     var property poblacion = 0
@@ -7,8 +8,8 @@ class Plagas {
     method nivelDeDaño() {
         // Lógica para calcular el nivel de daño
     }
-    method sobreLaPlaga(plaga) {
-        poblacion = poblacion + plaga.poblacion() * 0.01
+    method efectoParaLaPlaga() {
+        poblacion += poblacion * 0.01
     }
 }
 class Mosquito inherits Plagas {
@@ -26,6 +27,10 @@ class Cucaracha inherits Plagas {
     override method transmiteEnfermedades() {
         return poblacion >= 10 && pesoPromedio >= 10
     }
+    override method efectoParaLaPlaga() {
+        poblacion += poblacion * 0.01
+        pesoPromedio += pesoPromedio + 2
+    }
 }
 class Pulga inherits Plagas {
     override method nivelDeDaño() {
@@ -41,5 +46,8 @@ class Garrapata inherits Plagas {
     }
     override method transmiteEnfermedades() {
         return poblacion >= 10
+    }
+    override method efectoParaLaPlaga() {
+        poblacion += poblacion * 0.02
     }
 }
