@@ -60,3 +60,10 @@ class Huerta inherits Elemento {
     }
   }
 }
+
+object produccionEsperada{
+  var valor = 15
+  method setValor(nuevoValor){
+    valor = nuevoValor
+  }
+}
