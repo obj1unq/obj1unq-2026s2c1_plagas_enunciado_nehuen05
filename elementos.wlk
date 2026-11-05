@@ -63,7 +63,6 @@ class Huerta inherits Elemento {
 
 object produccionEsperada{
   var valor = 15
-  method valorEsperado()=valor
   method setValor(nuevoValor){
     valor = nuevoValor
   }
