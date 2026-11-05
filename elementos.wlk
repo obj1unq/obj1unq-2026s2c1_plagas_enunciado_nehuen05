@@ -48,9 +48,9 @@ class Hogar inherits Elemento {
 
 class Huerta inherits Elemento {
   var property nivelDeProduccion = 0
-  const property produccionEsperada
+  const produccionEsperada
   override method esBueno() {
-    return nivelDeProduccion > produccionEsperada
+    return nivelDeProduccion > produccionEsperada.valorEsperado()
  } 
  override method efectoDeLaPlaga(plaga){
     if (plaga.transmiteEnfermedades()) {
@@ -63,6 +63,7 @@ class Huerta inherits Elemento {
 
 object produccionEsperada{
   var valor = 15
+  method valorEsperado()=valor
   method setValor(nuevoValor){
     valor = nuevoValor
   }

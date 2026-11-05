@@ -2,6 +2,9 @@ import plagas.*
 import elementos.*
 
 describe "test de los efectos de una plaga sobre un elemento" {
+  method intialize(){
+    produccionEsperada.setValor( 15)
+  }
   test "hogar es atacado por una plaga" {
     const casa = new Hogar()
     casa.nivelDeMugre(10)
@@ -34,9 +37,7 @@ test "mascota es atacada por una plaga que transmite enfermedades" {
   }
 
   test "Huerta es atacada por una plaga que transmite enfermedades" {
-    const cultivo = new Huerta()
-    cultivo.nivelDeProduccion(20)
-    cultivo.produccionEsperada(15)
+    const cultivo = new Huerta(nivelDeProduccion = 20)
     const plaga = new Cucaracha()
     plaga.poblacion(40)
     plaga.pesoPromedio(12)
@@ -46,7 +47,6 @@ test "mascota es atacada por una plaga que transmite enfermedades" {
   test "Huerta es atacada por una plaga que no transmite enfermedades" {
     const cultivo = new Huerta()
     cultivo.nivelDeProduccion(20)
-    cultivo.produccionEsperada(15)
     const plaga = new Cucaracha()
     plaga.poblacion(40)
     plaga.pesoPromedio(7)

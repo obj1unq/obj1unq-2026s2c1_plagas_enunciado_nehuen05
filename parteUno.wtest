@@ -1,6 +1,9 @@
 import elementos.*
 
 describe "group of tests for villa" {
+  method intialize(){
+    produccionEsperada.setValor( 15)
+  }
 
   test "mascota es buena" {
     const felipe = new Mascota(nivelDeSalud = 300)
@@ -50,7 +53,7 @@ describe "group of tests for villa" {
     const villa = new Elemento()
     const mascota = new Mascota(nivelDeSalud= 200)
     const hogar = new Hogar(nivelDeMugre= 15, nivelDeConfort=20 )
-    const huerta = new Huerta(nivelDeProduccion= 10)
+    const huerta = new Huerta()
 
     villa.agregarElemento(mascota)
     villa.agregarElemento(hogar)
