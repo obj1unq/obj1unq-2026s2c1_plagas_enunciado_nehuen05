@@ -9,8 +9,9 @@ class Plagas {
         // Lógica para calcular el nivel de daño
     }
     method efectoParaLaPlaga() {
-        poblacion += poblacion * 0.1
+        poblacion += poblacion * self.porcentaje()
     }
+    method porcentaje() = 0.1
 }
 class Mosquito inherits Plagas {
     override method nivelDeDaño() {
@@ -40,14 +41,7 @@ class Pulga inherits Plagas {
         return poblacion >= 10
     }
 }
-class Garrapata inherits Plagas {
-    override method nivelDeDaño() {
-        return poblacion * 2
-    }
-    override method transmiteEnfermedades() {
-        return poblacion >= 10
-    }
-    override method efectoParaLaPlaga() {
-        poblacion += poblacion * 0.2
-    }
+class Garrapata inherits Pulga {
+    override method porcentaje() = 0.2
+    
 }
