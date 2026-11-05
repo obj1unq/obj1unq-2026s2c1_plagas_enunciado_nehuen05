@@ -48,7 +48,7 @@ class Hogar inherits Elemento {
 
 class Huerta inherits Elemento {
   var property nivelDeProduccion = 0
-  var property produccionEsperada = 15
+  const property produccionEsperada
   override method esBueno() {
     return nivelDeProduccion > produccionEsperada
  } 

@@ -1,13 +1,11 @@
 import elementos.*
 class Plagas {
-    var property plagas = []
+    const property plagas = []
     var property poblacion = 0
-    method transmiteEnfermedades() {
-        // Lógica para transmitir enfermedades
-    }
-    method nivelDeDaño() {
-        // Lógica para calcular el nivel de daño
-    }
+    method transmiteEnfermedades() // Lógica para transmitir enfermedades
+
+    method nivelDeDaño() // Lógica para calcular el nivel de daño
+    
     method efectoParaLaPlaga() {
         poblacion += poblacion * self.porcentaje()
     }
