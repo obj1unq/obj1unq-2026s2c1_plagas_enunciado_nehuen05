@@ -27,39 +27,38 @@ describe "group of tests for villa" {
   }
 
   test "Huerta es buena" {
-    const cultivo = new Huerta(nivelDeProduccion= 20)
+    produccionEsperada.setValor(10)
+    const cultivo = new Huerta(nivelDeProduccion = 20, produccionEsperada = produccionEsperada)
     assert.that( cultivo.esBueno() )
   }
 
   test "Huerta es mala" {
-    const cultivo = new Huerta(nivelDeProduccion = 10)
+    const cultivo = new Huerta(nivelDeProduccion = 10, produccionEsperada = produccionEsperada)
     assert.notThat( cultivo.esBueno() )
   }
 
   test "villa es copada" {
-    const villa = new Elemento()
     const mascota = new Mascota(nivelDeSalud= 300)
     const hogar = new Hogar(nivelDeMugre= 10, nivelDeConfort=20 )
-    const huerta = new Huerta(nivelDeProduccion= 10)
+    const huerta = new Huerta(nivelDeProduccion = 10, produccionEsperada = produccionEsperada)
 
-    villa.agregarElemento(mascota)
-    villa.agregarElemento(hogar)
-    villa.agregarElemento(huerta)
+    pueblo.agregarElemento(mascota)
+    pueblo.agregarElemento(hogar)
+    pueblo.agregarElemento(huerta)
 
-    assert.that(villa.esCopado() )
+    assert.that(pueblo.esCopado() )
   }
 
   test "villa no es copada" {
-    const villa = new Elemento()
     const mascota = new Mascota(nivelDeSalud= 200)
     const hogar = new Hogar(nivelDeMugre= 15, nivelDeConfort=20 )
-    const huerta = new Huerta()
+    const huerta = new Huerta(nivelDeProduccion = 0, produccionEsperada = produccionEsperada)
 
-    villa.agregarElemento(mascota)
-    villa.agregarElemento(hogar)
-    villa.agregarElemento(huerta)
+    pueblo.agregarElemento(mascota)
+    pueblo.agregarElemento(hogar)
+    pueblo.agregarElemento(huerta)
 
-    assert.notThat(villa.esCopado() )
+    assert.notThat(pueblo.esCopado() )
   }
 
 

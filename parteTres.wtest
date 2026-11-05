@@ -37,7 +37,7 @@ test "mascota es atacada por una plaga que transmite enfermedades" {
   }
 
   test "Huerta es atacada por una plaga que transmite enfermedades" {
-    const cultivo = new Huerta(nivelDeProduccion = 20)
+    const cultivo = new Huerta(nivelDeProduccion = 20 , produccionEsperada = produccionEsperada)
     const plaga = new Cucaracha()
     plaga.poblacion(40)
     plaga.pesoPromedio(12)
@@ -45,8 +45,7 @@ test "mascota es atacada por una plaga que transmite enfermedades" {
     assert.that(cultivo.nivelDeProduccion() == 8)
   }
   test "Huerta es atacada por una plaga que no transmite enfermedades" {
-    const cultivo = new Huerta()
-    cultivo.nivelDeProduccion(20)
+    const cultivo = new Huerta(nivelDeProduccion = 20 , produccionEsperada = produccionEsperada)
     const plaga = new Cucaracha()
     plaga.poblacion(40)
     plaga.pesoPromedio(7)
