@@ -1,0 +1,72 @@
+import plagas.*
+
+describe "tests de plagas" {
+    test "Mosquitos transmite enfermedades" {
+        const plaga = new Mosquito()
+        plaga.poblacion(30)
+        // Aquí puedes agregar más lógica para configurar la plaga y verificar su comportamiento
+        assert.that(plaga.transmiteEnfermedades())
+    }
+    test "Mosquitos no transmite enfermedades" {
+        const plaga = new Mosquito()
+        plaga.poblacion(10)
+        assert.notThat(plaga.transmiteEnfermedades())
+    }
+    test "nivel de daño generado por Mosquitos" {
+        const plaga = new Mosquito()
+        plaga.poblacion(10)
+        assert.that(plaga.nivelDeDaño() == 10)
+    }
+
+    test "cucarachas transmite enfermedades" {
+        const plaga = new Cucaracha()
+        plaga.poblacion(10)
+        plaga.pesoPromedio(11)
+        assert.that(plaga.transmiteEnfermedades())
+    }
+    test "cucarachas no transmite enfermedades" {
+        const plaga = new Cucaracha()
+        plaga.poblacion(10)
+        plaga.pesoPromedio(8)
+        assert.notThat(plaga.transmiteEnfermedades())
+    }
+    test "nivel de daño generado por Cucarachas" {
+        const plaga = new Cucaracha()
+        plaga.poblacion(10)
+        plaga.pesoPromedio(10)
+        assert.that(plaga.nivelDeDaño() == 5)
+    }
+
+    test "Pulgas transmite enfermedades" {
+        const plaga = new Pulga()
+        plaga.poblacion(10)
+        assert.that(plaga.transmiteEnfermedades())
+    }
+    test "Pulgas no transmite enfermedades" {
+        const plaga = new Pulga()
+        plaga.poblacion(6)
+        assert.notThat(plaga.transmiteEnfermedades())
+    }
+    test "nivel de daño generado por Pulgas" {
+        const plaga = new Pulga()
+        plaga.poblacion(10)
+        assert.that(plaga.nivelDeDaño() == 20)
+    }
+
+    test "Garrapatas transmite enfermedades" {
+        const plaga = new Garrapata()
+        plaga.poblacion(10)
+        assert.that(plaga.transmiteEnfermedades())
+    }
+    test "Garrapatas no transmite enfermedades" {
+        const plaga = new Garrapata()
+        plaga.poblacion(7)
+        assert.notThat(plaga.transmiteEnfermedades())
+    }
+    test "nivel de daño generado por Garrapatas" {
+        const plaga = new Garrapata()
+        plaga.poblacion(10)
+        assert.that(plaga.nivelDeDaño() == 20)
+    }
+
+}

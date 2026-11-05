@@ -1,0 +1,65 @@
+import elementos.*
+
+describe "group of tests for villa" {
+  method intialize(){
+    produccionEsperada.setValor( 15)
+  }
+
+  test "mascota es buena" {
+    const felipe = new Mascota(nivelDeSalud = 300)
+    assert.that(felipe.esBueno() )
+  }
+
+  test "mascota es mala" {
+    const tristepe = new Mascota(nivelDeSalud = 240)
+    
+    assert.notThat( tristepe.esBueno() )
+  }
+
+  test "mi Hogar es bueno" {
+    const miCasa = new Hogar(nivelDeMugre= 10, nivelDeConfort=20 )
+    assert.that(miCasa.esBueno() )
+  }
+
+  test "mi Hogar es malo" {
+    const miCasa = new Hogar(nivelDeMugre= 10, nivelDeConfort=5 )
+    assert.notThat( miCasa.esBueno() )
+  }
+
+  test "Huerta es buena" {
+    produccionEsperada.setValor(10)
+    const cultivo = new Huerta(nivelDeProduccion = 20, produccionEsperada = produccionEsperada)
+    assert.that( cultivo.esBueno() )
+  }
+
+  test "Huerta es mala" {
+    const cultivo = new Huerta(nivelDeProduccion = 10, produccionEsperada = produccionEsperada)
+    assert.notThat( cultivo.esBueno() )
+  }
+
+  test "villa es copada" {
+    const mascota = new Mascota(nivelDeSalud= 300)
+    const hogar = new Hogar(nivelDeMugre= 10, nivelDeConfort=20 )
+    const huerta = new Huerta(nivelDeProduccion = 10, produccionEsperada = produccionEsperada)
+
+    pueblo.agregarElemento(mascota)
+    pueblo.agregarElemento(hogar)
+    pueblo.agregarElemento(huerta)
+
+    assert.that(pueblo.esCopado() )
+  }
+
+  test "villa no es copada" {
+    const mascota = new Mascota(nivelDeSalud= 200)
+    const hogar = new Hogar(nivelDeMugre= 15, nivelDeConfort=20 )
+    const huerta = new Huerta(nivelDeProduccion = 0, produccionEsperada = produccionEsperada)
+
+    pueblo.agregarElemento(mascota)
+    pueblo.agregarElemento(hogar)
+    pueblo.agregarElemento(huerta)
+
+    assert.notThat(pueblo.esCopado() )
+  }
+
+
+}
