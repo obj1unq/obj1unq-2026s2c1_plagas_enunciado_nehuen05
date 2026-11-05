@@ -27,7 +27,7 @@ class Cucaracha inherits Plagas {
         return poblacion >= 10 && pesoPromedio >= 10
     }
     override method efectoParaLaPlaga() {
-        poblacion += poblacion * 0.1
+        super()
         pesoPromedio +=  2
     }
 }
